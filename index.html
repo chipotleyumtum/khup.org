@@ -5,161 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KHUP.ORG</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
-
-    :root {
-      --color-red: #ec1840;
-      --color-purple: #7a18ec;
-      /* Assuming you want black text on light backgrounds, changed --color-white to actual black */
-      /* If you intended white text, use #ffffff or rgb(255, 255, 255) */
-      --color-text-on-light: rgb(0, 0, 0); /* Was --color-white, likely an error for text */
-      --color-white-bg: rgb(255, 255, 255); /* For elements that should be white */
-      --color-black-1-bg: rgb(244, 244, 244); /* Page background */
-      --color-black-2-bg: rgb(248, 248, 248);
-      --color-black-3-bg: rgb(255, 255, 255);
-      --speed-normal: 0.5s;
-      --speed-fast: 0.8s;
-    }
-
-    /* Body styles were defined twice. Consolidating and choosing the one that seems to be the main page style. */
-    body {
-      margin: 0;
-      padding: 0;
-      /* width: 100vw; */ /* Avoid setting width to 100vw on body if you have other full-width elements or margins/padding */
-      /* height: 100vh; */ /* Can cause issues with scrolling if content overflows */
-      min-height: 100vh;
-      display: flex;
-      /* justify-content: top; */ /* 'top' is not a valid value for justify-content. Use flex-start, center, etc. */
-      /* align-items: right; */ /* 'right' is not a valid value for align-items. Use flex-start, center, flex-end, etc. */
-      justify-content: center; /* Centering the overall content as a common pattern */
-      align-items: center; /* Centering the overall content */
-      flex-direction: column;
-      background: var(--color-black-1-bg); /* This was var(--color-black-1) */
-      font-family: "Poppins", sans-serif;
-      /* overflow: hidden; */ /* This was in the other body definition, can prevent scrolling. Remove if scrolling is needed. */
-    }
-
-    /* Animated background content from the first body definition */
-    /* This might be intended for a specific section rather than the whole body if other content exists */
-    .animated-background-container {
-        margin: 0;
-        padding: 0;
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: radial-gradient(circle at 50% 50%, #222, #111, #080808);
-        position: fixed; /* To keep it in the background */
-        top: 0;
-        left: 0;
-        z-index: -1; /* Place it behind other content */
-    }
-
-    .animated-background-content {
-        width: 80vmin;
-        height: 80vmin;
-        position: relative;
-        animation: spin 5s linear 0s infinite;
-    }
-
-    @keyframes spin {
-        100% { transform: rotate(360deg); }
-    }
-
-    .animated-background-content > div {
-        --line: rgb(204, 68, 68);
-        position: absolute;
-        width: 70%;
-        height: 70%;
-        border-radius: 100%;
-        box-sizing: border-box;	
-        box-shadow: -3vmin 3vmin 3vmin 0 #161616 inset, 1vmin -1vmin 0.125vmin -1.25vmin var(--line);
-        background:
-            radial-gradient(circle at 36% 64%, #fff0 0 calc(53.5% - 1px), var(--line) 53.5% 54%, #fff0 calc(54% + 1px) 100%),
-            radial-gradient(circle at 38% 62%, #fff0 0 calc(54.5% - 1px), var(--line) 54.5% 55%, #fff0 calc(55% + 1px) 100%),
-            radial-gradient(circle at 42% 58%, #fff0 0 calc(57.75% - 1px), var(--line) 57.75% 58%, #fff0 calc(58% + 1px) 100%),  
-            radial-gradient(circle at 40% 60%, #fff0 0 calc(56.75% - 1px), var(--line) 56.75% 57%, #fff0 calc(57% + 1px) 100%),
-            radial-gradient(circle at 45% 55%, #fff0 0 calc(61.75% - 1px), var(--line) 61.75% 62%, #fff0 calc(62% + 1px) 100%),		
-            radial-gradient(circle at 43.5% 56.5%, #fff0 0 calc(59.75% - 1px), var(--line) 59.75% 60%, #fff0 calc(60% + 1px) 100%),	
-            radial-gradient(circle at 45% 55%, #fff0 0 calc(64.5% - 1px), var(--line) 64.5% 64.75%, #fff0 calc(64.75% + 1px) 100%),
-            radial-gradient(circle at 46.5% 53.5%, #fff0 0 calc(65.5% - 1px), var(--line) 65.5% 65.75%, #fff0 calc(65.75% + 1px) 100%),
-            radial-gradient(circle at 48.5% 51.5%, #fff0 0 calc(67.75% - 1px), var(--line) 67.75% 68.25%, #fff0 calc(68.25% + 1px) 100%),
-            radial-gradient(circle at 49% 51%, #fff0 0 calc(69.5% - 1px), var(--line) 69.5% 70%, #fff0 calc(70% + 1px) 100%);
-    }
-
-    .top-left { left: 11vmin; top: 2vmin; }
-    .left-bot { bottom: 11vmin; left: 2vmin; transform: rotate(-90deg); }
-    .bot-right { right: 11vmin; bottom: 2vmin; transform: rotate(-180deg); }
-    .right-top { right: 2vmin; top: 11vmin; transform: rotate(-270deg); }
-
-    /* General reset - already present, good practice */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    /* Font family is now set on body */
-
-    /* Styling for navigation links */
-    .nav-links {
-        display: flex; /* Arrange links in a row */
-        justify-content: center; /* Center links on the page */
-        align-items: center;
-        margin-top: 20px; /* Add some space above the links */
-        flex-wrap: wrap; /* Allow links to wrap on smaller screens */
-    }
-
-    .nav-links a {
-      position: relative;
-      width: 180px;
-      height: 60px;
-      margin: 10px; /* Adjusted margin for better spacing when wrapped */
-      line-height: 60px;
-      letter-spacing: 2px;
-      text-decoration: none;
-      text-transform: uppercase;
-      text-align: center;
-      color: var(--color-text-on-light); /* Changed from --color-white */
-      transition: var(--speed-normal);
-      border: 1px solid var(--color-red);
-      background-color: var(--color-white-bg); /* Giving buttons a background */
-      border-radius: 5px; /* Added for softer edges */
-    }
-
-    .nav-links a:hover {
-      border: 1px solid transparent;
-      background: var(--color-red) url(https://i.postimg.cc/wBXGXbWN/pixel.png); /* Ensure this image is accessible and intended */
-      transition-delay: 0.8s; /* This creates a noticeable delay before the hover effect starts */
-      background-size: 180px;
-      animation: animate var(--speed-fast) steps(8) forwards;
-      color: var(--color-white-bg); /* Text color on hover */
-    }
-
-    /* This :last-of-type might be too general if you add more links. Consider using a class for the second button. */
-    .nav-links a:nth-of-type(2) { /* More specific selector if it's always the second link */
-      border: 1px solid var(--color-purple);
-    }
-
-    .nav-links a:nth-of-type(2):hover {
-      background: var(--color-purple) url(https://i.postimg.cc/FzBWFtKM/pixel2.png); /* Ensure this image is accessible */
-      color: var(--color-white-bg); /* Text color on hover */
-    }
-
-    /* Keyframes for the hover animation - assuming 'animate' is defined elsewhere or should be defined */
-    @keyframes animate {
-      /* Example animation, replace with your actual animation steps */
-      0% { background-position: 0 0; }
-      100% { background-position: 0 -1080px; } /* Assuming the sprite sheet logic */
-    }
-
-    /* Structure for heart - these were empty divs, might be for CSS art */
-    .back { /* Add styles if this is a visual element */ }
-    .heart { /* Add styles if this is a visual element */ }
-
-    </style>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <div class="animated-background-container">
@@ -171,13 +17,12 @@
         </div>
     </div>
 
+    <h1 class="site-title">KHUP.ORG</h1>
+
     <nav class="nav-links">
         <a href="pages/Blog.html">Blog</a>
         <a href="pages/aboutme.html">About me</a>
-        </nav>
-
-    <div class="back"></div>
-    <div class="heart"></div>
+    </nav>
 
 </body>
 </html>
