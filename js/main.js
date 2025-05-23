@@ -6,16 +6,33 @@ const options = {
 		'x-rapidapi-host': 'quotes15.p.rapidapi.com'
 	}
 };
-.then(response => response.json())
-.then(response => {
-    console.log(response);
-})
 
-try {
-	const response = await fetch(url, options);
-	const result = await response.text();
-	console.log(result);
-    console.log();
-} catch (error) {
-	console.error(error);
+async function fetchRandomQuote() {
+	try {
+		const response = await fetch(url, options);
+		if (!response.ok) {
+			throw new Error(`HTTP error! status: ${response.status}`);
+		}
+		const data = await response.json();
+		console.log(data); // Or update the DOM with the quote
+		// Example: document.getElementById('quote-display').innerText = data.content;
+		return data;
+	} catch (error) {
+		console.error("Error fetching quote:", error);
+	}
 }
+
+// If you want to call it immediately:
+// fetchRandomQuote();
+
+// Or assign it to be called by an event, e.g., in your HTML:
+// <script src="../js/main.js"></script>
+// <script>
+//   document.addEventListener('DOMContentLoaded', (event) => {
+//     fetchRandomQuote().then(quote => {
+//       if (quote && document.getElementById('quote')) {
+//         document.getElementById('quote').innerText = quote.content + " - " + quote.originator.name;
+//       }
+//     });
+//   });
+// </script>

@@ -1,0 +1,237 @@
+/* aboutme page specific styles */
+body {
+  display: block; /* Restore default layout, override main.css flex */
+  min-height: 100vh;
+  background-color: #f5f5dc;
+  background: url('../images/parchment.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Libre Baskerville', serif;
+  color: #3e2723;
+  /* Only apply side and bottom padding, remove top padding so nav is flush to viewport */
+  padding: 0 2rem 2rem;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: calc(100% + 4rem);  /* span full width including body padding */
+  margin-left: -2rem;       /* compensate for body padding */
+  background: rgba(255,248,220,0.8);
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #a1887f;
+  margin-bottom: 2rem;
+  box-sizing: border-box;
+}
+
+nav a {
+  text-decoration: none;
+  color: #3e2723;
+  font-weight: bold;
+}
+
+#about-section {
+  width: 100%;
+  max-width: 960px;
+  margin-bottom: 2rem;
+}
+
+#about-section .card {
+  background: rgba(255,248,220,0.8);
+  border: 1px solid #a1887f;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+#about-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#about-section ul {
+  list-style: square;
+  padding-left: 0;
+  display: inline-block;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+.avatar-container img {
+  max-width: 200px;
+  height: auto;
+  border-radius: 8px;
+}
+
+#quote {
+  text-align: center;
+  margin-top: auto;
+  padding-top: 2rem;
+  font-style: italic;
+  width: 100%;
+  max-width: 960px;
+}
+
+@media (min-width: 768px) {
+  #about-section .card {
+    margin-top: 0;
+  }
+}
+
+/* Themed buttons */
+.btn-chess {
+  position: relative;
+  background: repeating-linear-gradient(
+    0deg,
+    #fff 0 25%,
+    #000 0 50%
+  );
+  background-size: 40px 40px;
+  color: #ffd700;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  border: 2px solid #000;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.btn-music {
+  position: relative;
+  background: repeating-linear-gradient(
+    to right,
+    #fff 0 20%,
+    #000 0 25%,
+    #fff 0 30%
+  );
+  background-size: 20px 100%;
+  color: #fff;
+  font-weight: bold;
+  padding-left: 2rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.btn-music::before {
+  content: "♪";
+  position: absolute;
+  left: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: #000;
+}
+
+.btn-soccer {
+  position: relative;
+  background: #6caf37;
+  color: #fff;
+  font-weight: bold;
+  border: 2px solid #fff;
+  padding: 0.5rem 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.btn-soccer::before,
+.btn-soccer::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 24px;
+  background: #fff;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.btn-soccer::before { left: -6px; }
+.btn-soccer::after  { right: -6px; }
+
+.btn-movies {
+  position: relative;
+  background: #000;
+  color: #ffd700;
+  font-weight: bold;
+  overflow: hidden;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.btn-movies::before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(
+    circle at top left,
+    rgba(255,255,255,0.5),
+    transparent 60%
+  );
+  top: -50%;
+  left: -50%;
+  transform: rotate(25deg);
+}
+
+.btn-mathematics {
+  position: relative;
+  background: #e3f2fd;
+  color: #0d47a1;
+  font-weight: bold;
+  overflow: hidden;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.btn-mathematics::before {
+  content: "123 + ∑ π ∞";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) rotate(-30deg);
+  font-size: 1.2rem;
+  color: rgba(13,71,161,0.2);
+}
+
+.btn-philosophy {
+  position: relative;
+  z-index: 1;
+  background: #f3e5f5;
+  color: #4a148c;
+  border: 2px dashed #7e57c2;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.btn-philosophy::before {
+  content: "🧠";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.btn-philosophy::after {
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  background: #f3e5f5;
+  border-radius: 50%;
+  box-shadow: 12px 12px 0 0 #f3e5f5, 24px 24px 0 0 #f3e5f5;
+}

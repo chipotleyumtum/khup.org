@@ -1,0 +1,111 @@
+/* Blog page specific styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.hero-section {
+  background: url('textured-background.jpg') center/cover no-repeat;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.title {
+  font-size: 3rem;
+  color: #d63f3f;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+/* Main Content Section */
+.content-section {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.date-container {
+  margin: 2rem 0 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.date-divider {
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+  margin: 0 1rem;
+}
+
+.date-text {
+  white-space: nowrap;
+  font-weight: 700;
+  color: #555;
+}
+
+.post-content {
+  margin-bottom: 2rem;
+  text-align: justify;
+}
+
+/* Symbol (Crown) Section */
+.symbol-container {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.symbol {
+  width: 80px;
+  height: 80px;
+  background-image: url('/Oldstuff/picto.png');
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+}
+
+.symbol#crown {
+  clip-path: polygon(50% 0%,
+      60% 40%,
+      80% 20%,
+      100% 40%,
+      80% 60%,
+      100% 100%,
+      50% 80%,
+      0% 100%,
+      20% 60%,
+      0% 40%,
+      20% 20%,
+      40% 40%);
+}
+
+/* Go back nav styling */
+nav {
+  background: rgba(255,248,220,0.8);
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-family: 'Libre Baskerville', serif;  /* Match About Me nav font */
+}
