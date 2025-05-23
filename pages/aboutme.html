@@ -12,7 +12,8 @@
     <style>
       body {
         min-height: 100vh;
-        background-color: #f5f5dc;
+        background-color: #f5f5dc; /* Fallback background color */
+        /* Ensure parchment.jpg is in an 'images' folder at the root of your project */
         background: url('../images/parchment.jpg') no-repeat center center fixed;
         background-size: cover;
         font-family: 'Libre Baskerville', serif;
@@ -29,7 +30,6 @@
         border-bottom: 1px solid #a1887f;
         margin-bottom: 2rem;
         width: 100%; /* full width */
-        /* max-width removed so nav always spans the viewport */
         box-sizing: border-box;
       }
       nav a {
@@ -63,10 +63,11 @@
       .avatar-container img {
         max-width: 200px;
         height: auto;
+        border-radius: 8px; /* Added a slight rounding to the avatar */
       }
       #quote {
         text-align: center;
-        margin-top: auto;
+        margin-top: auto; /* Pushes quote to the bottom if content is short */
         padding-top: 2rem;
         font-style: italic;
         width: 100%;
@@ -123,7 +124,7 @@
         top: 50%;
         transform: translateY(-50%);
         font-size: 1.2rem;
-        color: #000;
+        color: #000; /* Changed note color for better visibility on the button background */
       }
 
       .btn-soccer {
@@ -189,7 +190,7 @@
         text-transform: uppercase;
       }
       .btn-mathematics::before {
-        content: "123 + ∑ π ∞";
+        content: "123 + ∑ π ∞"; /* Note: Ensure these symbols render well across browsers/OS */
         position: absolute;
         top: 50%;
         left: 50%;
@@ -210,8 +211,7 @@
         font-size: 1rem;
         text-transform: uppercase;
       }
-      /* central “brain” icon */
-      .btn-philosophy::before {
+      .btn-philosophy::before { /* central “brain” icon */
         content: "🧠";
         position: absolute;
         top: 50%;
@@ -221,8 +221,7 @@
         opacity: 0.2;         /* soften background icon */
         z-index: 0;           /* place behind text */
       }
-      /* mini inner thought‐bubbles */
-      .btn-philosophy::after {
+      .btn-philosophy::after { /* mini inner thought‐bubbles */
         content: "";
         position: absolute;
         bottom: 8px;
@@ -231,7 +230,7 @@
         height: 8px;
         background: #f3e5f5;
         border-radius: 50%;
-        box-shadow: 12px 12px 0 0 #f3e5f5, 24px 24px 0 0 #f3e5f5;
+        box-shadow: 12px 12px 0 0 #f3e5f5, 24px 24px 0 0 #f3e5f5; /* Check this shadow if it looks off */
       }
     </style>
   </head>
@@ -239,18 +238,14 @@
     <nav>
       <a href="javascript:history.back()">← Go back</a>
     </nav>
-    <div class="container-fluid d-flex justify-content-center">
-      <section id="about-section">
+    <div class="container-fluid d-flex justify-content-center"> <section id="about-section">
         <div class="row flex-column justify-content-center align-items-center">
           <div class="col-md-4 text-center avatar-container">
-            <a href="#about-section">
-              <img src="../images/avatar.png"
-                   alt="Avatar"
-                   class="img-fluid rounded shadow-sm mb-3 d-block mx-auto">
+            <a href="#about-section"> <img src="../images/avatar.png"
+                   alt="Avatar of Khup Mung" class="img-fluid rounded shadow-sm mb-3 d-block mx-auto">
             </a>
           </div>
-          <div class="col-md-8 col-lg-6 text-center">
-            <div class="card">
+          <div class="col-md-8 col-lg-6 text-center"> <div class="card">
               <h2>About Me</h2>
               <p><strong>Name:</strong> Khup Mung (Symere)</p>
               <p><strong>Interests:</strong></p>
@@ -305,12 +300,13 @@
     <script type="module">
       const quotes = [
         "Learning never exhausts the mind."
+        // Add more quotes here if you like
       ];
       const quoteElement = document.getElementById('quote');
       if (quoteElement) {
         quoteElement.innerText = quotes[Math.floor(Math.random() * quotes.length)];
       } else {
-        console.error("Quote element not found!");
+        console.error("Quote element not found!"); // Good for debugging
       }
     </script>
   </body>
