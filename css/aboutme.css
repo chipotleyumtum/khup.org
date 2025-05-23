@@ -461,3 +461,32 @@ nav a {
 .philosophy-box {
   margin-top: 0.5rem; /* ensure gap between title and box */
 }
+
+/* Distinct rectangular box for mathematics content */
+.math-box {
+  background-color: rgba(255, 248, 220, 0.9); /* light parchment tone */
+  border: 2px solid #a1887f;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  max-width: 960px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.math-box section {
+  margin-bottom: 1.5rem;
+}
+
+.math-box section:last-child {
+  margin-bottom: 0;
+}
+
+/* Image styling within math-box sections */
+.math-box section img.section-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(161, 136, 127, 0.5);
+  border-radius: 4px;
+}
