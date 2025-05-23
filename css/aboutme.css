@@ -433,3 +433,31 @@ nav a {
   border-radius: 50%;
   box-shadow: 12px 12px 0 0 #f3e5f5, 24px 24px 0 0 #f3e5f5;
 }
+
+/* Distinct rectangular box for philosophy content */
+.philosophy-box {
+  background-color: rgba(255, 248, 220, 0.9); /* light parchment tone */
+  border: 2px solid #a1887f;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  max-width: 960px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.philosophy-box section {
+  margin-bottom: 1.5rem;
+}
+
+.philosophy-box section:last-child {
+  margin-bottom: 0;
+}
+
+.philosophy-title {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.philosophy-box {
+  margin-top: 0.5rem; /* ensure gap between title and box */
+}
