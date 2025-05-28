@@ -109,3 +109,39 @@ nav a {
   font-weight: bold;
   font-family: 'Libre Baskerville', serif;  /* Match About Me nav font */
 }
+
+/* Styles for images in blog posts */
+.post-images {
+  text-align: center; /* Center the inline-block images */
+  margin: 1.5rem 0; /* More margin for the container */
+}
+
+.blog-post-image {
+  max-width: calc(32% - 10px); /* Adjusted for a bit more space, for three images */
+  height: auto;
+  margin: 5px; /* Small margin around each image */
+  border: 1px solid #ccc; /* Slightly darker border */
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15); /* Slightly more pronounced shadow */
+  display: inline-block; 
+  vertical-align: top; 
+  transition: transform 0.2s ease-in-out; /* Add a little hover effect */
+}
+
+.blog-post-image:hover {
+  transform: scale(1.03); /* Slight zoom on hover */
+}
+
+@media (max-width: 992px) { /* Adjust breakpoint for 2 images */
+  .blog-post-image {
+    max-width: calc(48% - 10px); /* Two images per row */
+  }
+}
+
+@media (max-width: 600px) { /* Adjust breakpoint for 1 image */
+  .blog-post-image {
+    max-width: 90%; /* Stack them on smaller screens */
+    display: block; /* Make them block to stack */
+    margin: 1rem auto; /* Center them when stacked */
+  }
+}

@@ -8,115 +8,11 @@
   <link rel="stylesheet" href="../../css/aboutme.css">
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
-  <!-- Chessboard.js styles -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard.min.css" integrity="sha512-WS6QzM6sF11O8bhx+XxMZ8TpftQIC6xF12xTUYAlVZFn+ifUI/yFx19+R5KTn2ykDTjCv5xvXelt0Q1TEoN0aw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Chess</title>
 </head>
 <body>
   <nav><a href="../aboutme.html">← Go back</a></nav>
-  <h1>Chess Game Viewer</h1>
-  <!-- Board container -->
-  <div id="board" style="max-width: 400px; margin: 1rem auto;"></div>
-  <!-- Controls -->
-  <div class="controls" style="text-align:center; margin-bottom:1rem;">
-    <button id="prev">← Prev</button>
-    <button id="next">Next →</button>
-    <button id="flip">Flip Board</button>
-    <button id="auto">Auto Play</button>
-    <label style="margin-left:1rem;">Speed:<input id="speed" type="range" min="200" max="2000" step="100" value="800"></label>
-  </div>
-  <!-- Include Chess.js and Chessboard.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js" integrity="sha512-ruZT9SSineyb5HjpHzMRqkvX1+k89rZ/+ZvIJK/qt/Lv+wzWpyvjszB9NDaPkh+uJ12F66aUwsEWORJ3EGJZ9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard.min.js" integrity="sha512-/SVkZd76tWz1mVfePD+1u64BM1fVG3pYnRubXyDXJSJqJhQT/GvPMjWmhvoP/NxEMggqZ5i5znvwtYyrq/vQ8w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script>
-    // PGN for the game
-    const pgn = `[Event "Rated Rapid game"]
-    [Site "https://lichess.org/UGFb9U9s"]
-    [Date "2022.02.10"]
-    [Round "?"]
-    [White "LaughingJackMack"]
-    [Black "SpiritOf70CE"]
-    [Result "1-0"]
-    [UTCDate "2022.02.10"]
-    [UTCTime "01:21:51"]
-    [WhiteElo "2098"]
-    [BlackElo "2183"]
-    [WhiteRatingDiff "+26"]
-    [BlackRatingDiff "-7"]
-    [TimeControl "600+5"]
-    [ECO "B40"]
-    [Opening "Sicilian Defense: Four Knights Variation"]
-    [Termination "Normal"]
-    [Annotator "lichess.org"]
-    [Link "https://www.chess.com/analysis/library/57FVgzT1Q2?tab=review&move=58&tab=review&classification=brilliant&autorun=true"]
-
-    1. e4 c5 2. Nf3 e6 3. d4 cxd4 4. Nxd4 Nc6 5. Nc3 Nf6 {B40 Sicilian Defense: Four Knights Variation} 6. Bb5 $6 Bb4 7. Bg5 $2 Qa5 8. Ne2 $2 Qxb5 9. Bxf6 gxf6 10. O-O Qb6 11. Na4 Qa5 12. c3 Be7 13. Nd4 Nxd4 14. Qxd4 b6 15. a3 Bb7 16. Rfd1 Bc6 17. b3 Rg8 18. Nb2 Qg5 19. g3 Bc5 20. Qd3 f5 21. b4 fxe4 22. Qc4 d5 23. Qa6 Bxf2+ 24. Kxf2 e3+ 25. Kg2 $6 d4+ 26. Kg1 e2 27. Qxe2 dxc3 $2 28. Nc4 $6 Ke7 $1 29. Ne5 Bd5 $4 30. Rxd5 $3 c2 31. Nc6+ {Black resigns.} 1-0`;
-    
-    const game = new Chess();
-    game.load_pgn(pgn);
-    const moves = game.history();
-    const board = Chessboard('board', { draggable: false, position: 'start' });
-    let currentMove = 0;
-    let autoPlayInterval = null;
-    
-    function showPosition(index) {
-      game.reset();
-      for (let i = 0; i < index; i++) {
-        game.move(moves[i]);
-      }
-      board.position(game.fen());
-    }
-    
-    document.getElementById('next').addEventListener('click', () => {
-      if (currentMove < moves.length) {
-        currentMove++;
-        showPosition(currentMove);
-      }
-    });
-    
-    document.getElementById('prev').addEventListener('click', () => {
-      if (currentMove > 0) {
-        currentMove--;
-        showPosition(currentMove);
-      }
-    });
-    
-    document.getElementById('flip').addEventListener('click', () => {
-      board.flip();
-    });
-    
-    document.getElementById('auto').addEventListener('click', function() {
-      if (autoPlayInterval) {
-        clearInterval(autoPlayInterval);
-        autoPlayInterval = null;
-        this.textContent = 'Auto Play';
-      } else {
-        const speed = parseInt(document.getElementById('speed').value, 10);
-        autoPlayInterval = setInterval(() => {
-          if (currentMove < moves.length) {
-            currentMove++;
-            showPosition(currentMove);
-          } else {
-            clearInterval(autoPlayInterval);
-          }
-        }, speed);
-        this.textContent = 'Pause';
-      }
-    });
-    
-    document.getElementById('speed').addEventListener('input', function() {
-      if (autoPlayInterval) {
-        clearInterval(autoPlayInterval);
-        autoPlayInterval = setInterval(() => {
-          if (currentMove < moves.length) {
-            currentMove++;
-            showPosition(currentMove);
-          } else {
-            clearInterval(autoPlayInterval);
-          }
-        }, parseInt(this.value, 10));
-      }
-    });
-  </script>
+  <h1>Chess</h1>
+  <p>Content about Chess.</p>
 </body>
 </html>
