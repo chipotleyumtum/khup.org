@@ -6,8 +6,7 @@
     <meta http-equiv="Cache-Control" content="max-age=31536000, public">  <!-- Enable caching for static assets -->
     <title>Blog</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <!-- PDF.js library for embedding PDFs -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <!-- Embedded PDF via <embed> -->
     <link rel="stylesheet" href="../css/main.css">  <!-- Linked main.css -->
     <link rel="stylesheet" href="../css/blog.css">  <!-- Linked blog.css -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">  <!-- Libre Baskerville font for nav link -->
@@ -30,14 +29,9 @@
       </div>
       <h2 class="post-title" style="text-align:center; margin-bottom:1rem; font-family: 'Oswald', sans-serif;">MATH IMO</h2>
       <div class="post-content">I've recently been interested by the problems from the International Mathematical Olympiad (IMO). It's crazy on how contestants approach and solve these challenges. I've been fanboying over this dude named Evan Chen because he's just a quirky smart femboy who has won Gold at the IMOs with a phD in math from MIT. He's crazy asf.</div>
-      <!-- PDF.js Viewer -->
-      <div class="pdf-viewer-container" style="margin-top:1rem;">
-        <div class="pdf-controls" style="text-align:center; margin-bottom:0.5rem;">
-          <button id="prev-page">Prev</button>
-          <span id="page-info">Page 1 / ?</span>
-          <button id="next-page">Next</button>
-        </div>
-        <canvas id="pdf-canvas"></canvas>
+      <!-- PDF Link Fallback -->
+      <div class="pdf-link-container" style="margin-top:1rem; text-align:center;">
+        <p>The PDF cannot be embedded locally. You can <a href="../files/Napkin.pdf" target="_blank" rel="noopener">open or download the IMO problems collection (Napkin.pdf)</a>.</p>
       </div>
     </div>
 
@@ -104,54 +98,6 @@
     </div>
     <!-- External JS for GSAP animations -->
     <script src="../js/blog.js" defer></script>
-    <!-- PDF.js rendering script -->
-    <script defer>
-      document.addEventListener('DOMContentLoaded', function() {
-        const url = '../files/Napkin.pdf';
-        const pdfjsLib = window['pdfjs-dist/build/pdf'];
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js';
-        let pdfDoc = null, pageNum = 1, pageRendering = false, pageNumPending = null;
-        const scale = 1.5;
-        const canvas = document.getElementById('pdf-canvas');
-        const ctx = canvas.getContext('2d');
-        function renderPage(num) {
-          pageRendering = true;
-          pdfDoc.getPage(num).then(function(page) {
-            const viewport = page.getViewport({ scale: scale });
-            canvas.height = viewport.height;
-            canvas.width = viewport.width;
-            const renderContext = { canvasContext: ctx, viewport: viewport };
-            const renderTask = page.render(renderContext);
-            renderTask.promise.then(function() {
-              pageRendering = false;
-              document.getElementById('page-info').textContent = 'Page ' + pageNum + ' / ' + pdfDoc.numPages;
-              if (pageNumPending !== null) {
-                renderPage(pageNumPending);
-                pageNumPending = null;
-              }
-            });
-          });
-        }
-        function queueRenderPage(num) {
-          if (pageRendering) { pageNumPending = num; }
-          else { renderPage(num); }
-        }
-        document.getElementById('prev-page').addEventListener('click', function() {
-          if (pageNum <= 1) return;
-          pageNum--;
-          queueRenderPage(pageNum);
-        });
-        document.getElementById('next-page').addEventListener('click', function() {
-          if (pageNum >= pdfDoc.numPages) return;
-          pageNum++;
-          queueRenderPage(pageNum);
-        });
-        pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
-          pdfDoc = pdfDoc_;
-          document.getElementById('page-info').textContent = 'Page ' + pageNum + ' / ' + pdfDoc.numPages;
-          renderPage(pageNum);
-        });
-      });
-    </script>
+    <!-- PDF embed via native browser plugin -->
   </body>
 </html>
