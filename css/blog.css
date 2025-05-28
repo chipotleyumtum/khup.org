@@ -172,6 +172,213 @@ nav a {
   height: auto !important;
 }
 
+/* Custom video player styling for blog */
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  z-index: 1;
+  object-fit: cover;
+}
+
+.video-container video::-webkit-media-controls-panel {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8));
+}
+
+.video-container video::-webkit-media-controls-play-button {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+}
+
+.video-container video::-webkit-media-controls-timeline {
+  background: linear-gradient(to right, #a1887f, #8d6e63);
+}
+
+/* Enhanced glow effect for video */
+.video-frame:hover .video-container video {
+  filter: brightness(1.1) contrast(1.1);
+}
+
+/* Mathematics-themed video frame styling */
+.math-themed {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border-radius: 15px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 0 20px rgba(0, 150, 255, 0.3),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.math-themed::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(119, 198, 255, 0.1) 0%, transparent 50%);
+  animation: mathGlow 4s ease-in-out infinite;
+}
+
+@keyframes mathGlow {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+.math-corner {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #00d4ff;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.2) 0%, transparent 70%);
+  border: 2px solid #00d4ff;
+  border-radius: 50%;
+  z-index: 15;
+  transition: all 0.3s ease;
+  animation: symbolPulse 3s ease-in-out infinite;
+}
+
+@keyframes symbolPulse {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(5deg); }
+}
+
+.math-corner.top-left { top: -10px; left: -10px; }
+.math-corner.top-right { top: -10px; right: -10px; }
+.math-corner.bottom-left { bottom: -10px; left: -10px; }
+.math-corner.bottom-right { bottom: -10px; right: -10px; }
+
+.math-edge {
+  position: absolute;
+  background: linear-gradient(90deg, #00d4ff, #7c77c6, #ff77c6);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.math-edge.top, .math-edge.bottom {
+  left: 40px;
+  right: 40px;
+  height: 4px;
+}
+
+.math-edge.top { top: 0; }
+.math-edge.bottom { bottom: 0; }
+
+.math-edge.left, .math-edge.right {
+  top: 40px;
+  bottom: 40px;
+  width: 4px;
+}
+
+.math-edge.left { left: 0; }
+.math-edge.right { right: 0; }
+
+.equation-flow {
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: #ffffff;
+  background: rgba(0, 212, 255, 0.8);
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+  animation: equationScroll 8s linear infinite;
+}
+
+.equation-flow.vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+@keyframes equationScroll {
+  0% { transform: translateX(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+.math-player {
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(45deg, #1a1a2e, #16213e);
+}
+
+.math-player video {
+  border-radius: 10px;
+  filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.5));
+}
+
+.math-overlay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.floating-equation {
+  font-family: 'Times New Roman', serif;
+  font-size: 18px;
+  color: #00d4ff;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #00d4ff;
+  animation: floatEquation 6s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
+}
+
+@keyframes floatEquation {
+  0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.8; }
+  50% { transform: translateY(-10px) rotate(2deg); opacity: 1; }
+}
+
+.math-note {
+  color: #00d4ff;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(0, 212, 255, 0.5);
+  animation: noteGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes noteGlow {
+  from { text-shadow: 0 0 5px rgba(0, 212, 255, 0.5); }
+  to { text-shadow: 0 0 15px rgba(0, 212, 255, 0.8); }
+}
+
+/* Hover effects for math frame */
+.math-themed:hover .math-corner {
+  transform: scale(1.2) rotate(15deg);
+  color: #ff77c6;
+  border-color: #ff77c6;
+  box-shadow: 0 0 15px rgba(255, 119, 198, 0.6);
+}
+
+.math-themed:hover .equation-flow {
+  animation-duration: 4s;
+  background: rgba(255, 119, 198, 0.8);
+}
+
+.math-themed:hover .floating-equation {
+  color: #ff77c6;
+  border-color: #ff77c6;
+  animation-duration: 3s;
+}
+
 @media (max-width: 768px) {
   .pdf-viewer-iframe {
     height: 500px; /* Adjust height for smaller screens */
