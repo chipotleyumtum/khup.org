@@ -132,9 +132,27 @@ nav a {
   transform: scale(1.03); /* Slight zoom on hover */
 }
 
-@media (max-width: 992px) { /* Adjust breakpoint for 2 images */
-  .blog-post-image {
-    max-width: calc(48% - 10px); /* Two images per row */
+/* PDF Viewer Styles */
+.pdf-viewer-container {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd; /* Lighter border for the container */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background-color: #f9f9f9; /* Light background for the container */
+  padding: 5px; /* Small padding around the iframe */
+  border-radius: 4px;
+}
+
+.pdf-viewer-iframe {
+  width: 100%;
+  height: 700px; /* Increased height for better viewing */
+  border: none;
+  display: block; /* Ensure it takes up full width properly */
+}
+
+@media (max-width: 768px) {
+  .pdf-viewer-iframe {
+    height: 500px; /* Adjust height for smaller screens */
   }
 }
 
