@@ -141,6 +141,9 @@ nav a {
   background-color: #f9f9f9; /* Light background for the container */
   padding: 5px; /* Small padding around the iframe */
   border-radius: 4px;
+  max-width: 800px; /* match content width or desired box size */
+  margin: 1rem auto; /* center */
+  overflow: hidden;
 }
 
 .pdf-viewer-iframe {
@@ -162,6 +165,11 @@ nav a {
   margin: 1rem auto;
   border: 1px solid #ddd;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.pdf-viewer-container canvas {
+  width: 100% !important; /* scale canvas to container width */
+  height: auto !important;
 }
 
 @media (max-width: 768px) {
