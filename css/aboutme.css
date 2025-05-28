@@ -490,3 +490,705 @@ nav a {
   border: 1px solid rgba(161, 136, 127, 0.5);
   border-radius: 4px;
 }
+
+/* Hip-Hop Themed Music Player - Jay-Z Inspired */
+.hiphop-themed {
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 25%, #333333 50%, #1a1a1a 75%, #000000 100%);
+  border: 3px solid #FFD700;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 0 30px rgba(255, 215, 0, 0.4),
+    inset 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.hiphop-themed::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 0, 127, 0.1) 0%, transparent 50%),
+    linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.05) 50%, transparent 52%);
+  animation: goldShimmer 3s ease-in-out infinite;
+}
+
+@keyframes goldShimmer {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+.hiphop-player-frame {
+  position: relative;
+  margin: 1rem;
+  padding: 20px;
+  background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+  border-radius: 15px;
+  border: 2px solid #FFD700;
+}
+
+.vinyl-corner {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  background: radial-gradient(circle, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+  border: 3px solid #000;
+  border-radius: 50%;
+  z-index: 15;
+  animation: vinylSpin 4s linear infinite;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+}
+
+@keyframes vinylSpin {
+  0% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(90deg) scale(1.1); }
+  50% { transform: rotate(180deg) scale(1); }
+  75% { transform: rotate(270deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.vinyl-corner.top-left { top: -15px; left: -15px; }
+.vinyl-corner.top-right { top: -15px; right: -15px; }
+.vinyl-corner.bottom-left { bottom: -15px; left: -15px; }
+.vinyl-corner.bottom-right { bottom: -15px; right: -15px; }
+
+.equalizer-edge {
+  position: absolute;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 10;
+}
+
+.equalizer-edge.top {
+  top: 5px;
+  left: 60px;
+  right: 60px;
+  height: 40px;
+}
+
+.equalizer-edge.bottom {
+  bottom: 5px;
+  left: 60px;
+  right: 60px;
+  height: 40px;
+}
+
+.eq-bar {
+  width: 8px;
+  background: linear-gradient(to top, #FF0080, #FFD700, #00FF80);
+  border-radius: 4px;
+  animation: equalizerBounce 1.5s ease-in-out infinite;
+}
+
+.eq-bar:nth-child(1) { height: 20px; animation-delay: 0.1s; }
+.eq-bar:nth-child(2) { height: 35px; animation-delay: 0.2s; }
+.eq-bar:nth-child(3) { height: 25px; animation-delay: 0.3s; }
+.eq-bar:nth-child(4) { height: 40px; animation-delay: 0.4s; }
+.eq-bar:nth-child(5) { height: 30px; animation-delay: 0.5s; }
+
+@keyframes equalizerBounce {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.5); }
+}
+
+.hiphop-audio-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 25px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #000 25%, #1a1a1a 50%, #000 75%, #1a1a1a 100%);
+  border-radius: 15px;
+  position: relative;
+  margin: 15px 0;
+  border: 2px solid #FFD700;
+  box-shadow: 
+    0 0 30px rgba(255, 215, 0, 0.3),
+    inset 0 0 30px rgba(255, 255, 255, 0.05);
+}
+
+.hiphop-audio-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 215, 0, 0.03) 2px,
+      rgba(255, 215, 0, 0.03) 4px
+    );
+  border-radius: 13px;
+  animation: patternMove 8s linear infinite;
+}
+
+@keyframes patternMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+
+.vinyl-disk {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(45deg, #1a1a1a 0%, #333 50%, #1a1a1a 100%);
+  border-radius: 50%;
+  position: relative;
+  animation: vinylRotate 3s linear infinite;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  border: 3px solid #FFD700;
+}
+
+@keyframes vinylRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.vinyl-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background: #FFD700;
+  border-radius: 50%;
+  border: 2px solid #000;
+}
+
+.vinyl-grooves {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 50%;
+}
+
+.vinyl-grooves::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 50%;
+}
+
+.audio-controls {
+  flex: 1;
+}
+
+.hiphop-audio {
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(135deg, #000 0%, #1a1a1a 25%, #333 50%, #1a1a1a 75%, #000 100%);
+  border: 3px solid #FFD700;
+  border-radius: 30px;
+  outline: none;
+  box-shadow: 
+    0 0 20px rgba(255, 215, 0, 0.5),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.hiphop-audio::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, 
+    transparent 30%, 
+    rgba(255, 215, 0, 0.1) 50%, 
+    transparent 70%);
+  animation: audioShine 2s ease-in-out infinite;
+}
+
+@keyframes audioShine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.hiphop-audio::-webkit-media-controls-panel {
+  background: linear-gradient(135deg, #000, #1a1a1a, #333, #1a1a1a, #000);
+  border-radius: 27px;
+  border: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+.hiphop-audio::-webkit-media-controls-play-button {
+  background: radial-gradient(circle, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+  border: 3px solid #000;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  filter: drop-shadow(0 0 10px #FFD700);
+  transform: scale(1.2);
+}
+
+.hiphop-audio::-webkit-media-controls-play-button:hover {
+  background: radial-gradient(circle, #FFF 0%, #FFD700 50%, #FFA500 100%);
+  filter: drop-shadow(0 0 15px #FFD700);
+  transform: scale(1.3);
+}
+
+.hiphop-audio::-webkit-media-controls-timeline {
+  background: linear-gradient(to right, #333, #555);
+  border-radius: 10px;
+  height: 8px;
+}
+
+.hiphop-audio::-webkit-media-controls-timeline::-webkit-slider-thumb {
+  background: radial-gradient(circle, #FFD700, #FFA500);
+  border: 2px solid #000;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+}
+
+.hiphop-audio::-webkit-media-controls-current-time-display,
+.hiphop-audio::-webkit-media-controls-time-remaining-display {
+  color: #FFD700;
+  font-weight: bold;
+  text-shadow: 0 0 5px #FFD700;
+}
+
+.track-info {
+  margin-top: 15px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+.artist-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #FFD700;
+  text-shadow: 2px 2px 4px #000, 0 0 10px #FFD700;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  animation: artistGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes artistGlow {
+  from { text-shadow: 2px 2px 4px #000, 0 0 10px #FFD700; }
+  to { text-shadow: 2px 2px 4px #000, 0 0 20px #FFD700, 0 0 30px #FFA500; }
+}
+
+.track-title {
+  font-size: 16px;
+  color: #FFF;
+  margin: 8px 0;
+  font-style: italic;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.genre-tag {
+  font-size: 11px;
+  color: #FF0080;
+  font-weight: bold;
+  background: linear-gradient(45deg, rgba(255, 0, 128, 0.3), rgba(255, 215, 0, 0.2));
+  padding: 4px 12px;
+  border-radius: 15px;
+  display: inline-block;
+  margin: 5px 0;
+  border: 1px solid rgba(255, 0, 128, 0.5);
+  animation: tagPulse 3s ease-in-out infinite;
+}
+
+@keyframes tagPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.track-status {
+  font-size: 12px;
+  color: #00FF80;
+  font-weight: bold;
+  margin-top: 8px;
+  animation: statusBlink 1.5s ease-in-out infinite;
+  text-shadow: 0 0 5px #00FF80;
+}
+
+@keyframes statusBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Custom Control Buttons */
+.custom-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.control-btn {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #FFD700;
+  border-radius: 50%;
+  background: radial-gradient(circle, #000 0%, #1a1a1a 50%, #333 100%);
+  color: #FFD700;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 0 15px rgba(255, 215, 0, 0.4),
+    inset 0 0 15px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.control-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: conic-gradient(from 0deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+  animation: buttonSpin 3s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.control-btn:hover::before {
+  opacity: 1;
+}
+
+@keyframes buttonSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.control-btn:hover {
+  transform: scale(1.1);
+  background: radial-gradient(circle, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+  color: #000;
+  box-shadow: 
+    0 0 25px rgba(255, 215, 0, 0.8),
+    inset 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.control-btn:active {
+  transform: scale(0.95);
+}
+
+.play-btn {
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+}
+
+/* Simple Record Player Styles */
+.record-player-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
+  border: 2px solid #444;
+}
+
+.record-player-base {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.vinyl-record {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #1a1a1a 30%, #333 60%, #1a1a1a 100%);
+  border: 3px solid #666;
+  position: relative;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 
+    0 5px 15px rgba(0, 0, 0, 0.4),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.vinyl-record.spinning {
+  animation: vinylSpin 2s linear infinite;
+}
+
+@keyframes vinylSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.vinyl-center {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(45deg, #666, #999);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  border: 2px solid #888;
+  margin-bottom: 10px;
+}
+
+.vinyl-label {
+  font-size: 12px;
+  color: #ccc;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.tonearm {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 3px;
+  height: 120px;
+  background: linear-gradient(to bottom, #888 0%, #555 100%);
+  border-radius: 2px;
+  transform-origin: top center;
+  transform: rotate(25deg);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.tonearm::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: -2px;
+  width: 7px;
+  height: 7px;
+  background: #444;
+  border-radius: 50%;
+  border: 1px solid #666;
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.play-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #444 0%, #666 50%, #444 100%);
+  border: 3px solid #888;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 5px 15px rgba(0, 0, 0, 0.3),
+    inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.play-btn:hover {
+  transform: scale(1.1);
+  background: linear-gradient(45deg, #555 0%, #777 50%, #555 100%);
+  box-shadow: 
+    0 8px 20px rgba(0, 0, 0, 0.4),
+    inset 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.play-btn.playing {
+  background: linear-gradient(45deg, #0a6 0%, #0c8 50%, #0a6 100%);
+  border-color: #0c8;
+  box-shadow: 
+    0 0 20px rgba(0, 204, 136, 0.4),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.track-info {
+  text-align: center;
+  color: #ccc;
+}
+
+.track-info .artist {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.track-info .track {
+  font-size: 12px;
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Hip-hop themed record player */
+.hiphop-vinyl {
+  background: radial-gradient(circle, #1a1a1a 30%, #333 60%, #FFD700 70%, #1a1a1a 100%);
+  border-color: #FFD700;
+}
+
+.hiphop-vinyl .vinyl-center {
+  background: linear-gradient(45deg, #FFD700, #FFA500);
+  color: #000;
+  border-color: #FFD700;
+}
+
+.hiphop-vinyl .vinyl-label {
+  color: #FFD700;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+/* Moon themed record player */
+.moon-player {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border-color: #87CEEB;
+}
+
+.moon-vinyl {
+  background: radial-gradient(circle, #1a1a2e 30%, #16213e 60%, #87CEEB 70%, #1a1a2e 100%);
+  border-color: #87CEEB;
+  position: relative;
+}
+
+.moon-vinyl .vinyl-center {
+  background: linear-gradient(45deg, #87CEEB, #B0E0E6);
+  color: #1a1a2e;
+  border-color: #87CEEB;
+}
+
+.moon-vinyl .vinyl-label {
+  color: #87CEEB;
+  text-shadow: 0 0 5px rgba(135, 206, 235, 0.5);
+}
+
+.moon-glow {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, transparent 70%, rgba(135, 206, 235, 0.2) 80%, transparent 90%);
+  animation: moonPulse 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes moonPulse {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% { 
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.moon-arm {
+  background: linear-gradient(to bottom, #87CEEB 0%, #4682B4 100%);
+}
+
+.moon-controls .play-btn {
+  background: linear-gradient(45deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+  border-color: #87CEEB;
+  color: #87CEEB;
+}
+
+.moon-controls .play-btn:hover {
+  background: linear-gradient(45deg, #16213e 0%, #0f3460 50%, #16213e 100%);
+  box-shadow: 
+    0 8px 20px rgba(135, 206, 235, 0.3),
+    inset 0 0 15px rgba(135, 206, 235, 0.1);
+}
+
+.moon-controls .play-btn.playing {
+  background: linear-gradient(45deg, #4682B4 0%, #87CEEB 50%, #4682B4 100%);
+  color: #1a1a2e;
+  box-shadow: 
+    0 0 20px rgba(135, 206, 235, 0.6),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  font-size: 16px;
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.star:nth-child(1) {
+  top: 20%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.star:nth-child(2) {
+  top: 30%;
+  right: 20%;
+  animation-delay: 0.5s;
+}
+
+.star:nth-child(3) {
+  bottom: 25%;
+  left: 20%;
+  animation-delay: 1s;
+}
+
+.star:nth-child(4) {
+  bottom: 35%;
+  right: 15%;
+  animation-delay: 1.5s;
+}
+
+@keyframes twinkle {
+  0%, 100% { 
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}

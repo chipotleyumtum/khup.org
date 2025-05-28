@@ -13,11 +13,11 @@
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
     <link rel="icon" type="image/png" href="../../FAVICON.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/aboutme.css">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <script src="../../js/aboutme.js" defer></script>
     <title>Music - KHUP.ORG</title>
 </head>
 <body>
@@ -49,57 +49,61 @@
                 </div>
             </div>
             <p class="video-note">Man of culture, nostalgic song I really like</p>
+        </div>          <div class="music-post compact hiphop-themed">
+            <h2>"MARCYME" 🎤</h2>
+            <p class="post-date">May 28, 2025</p>
+            <div class="record-player-container" data-player="hipHopPlayer">
+                <div class="record-player-base">
+                    <div class="vinyl-record hiphop-vinyl">
+                        <div class="vinyl-center">🎤</div>
+                        <div class="vinyl-label">MARCYME</div>
+                    </div>
+                    <div class="tonearm"></div>
+                    <div class="player-controls">
+                        <button class="play-btn" onclick="togglePlay('hipHopPlayer')">▶️</button>
+                        <div class="track-info">
+                            <div class="artist">KHUP MUNG</div>
+                            <div class="track">MARCYME</div>
+                        </div>
+                    </div>
+                </div>                <audio id="hipHopPlayer" preload="metadata" controls style="display: none;">
+                    <source src="../../files/marcyme.flac" type="audio/flac">
+                    Your browser does not support FLAC audio format.
+                </audio>
+            </div>
+            <p class="video-note">🔥 Original hip-hop track with powerful lyrics</p>
         </div>
         
-        <div class="music-post compact">
-            <h2>"Imagine - John Lennon"</h2>
-            <p class="post-date">May 22, 2025</p>
-            <div class="video-frame">
-                <div class="frame-corner top-left"></div>
-                <div class="frame-corner top-right"></div>
-                <div class="frame-corner bottom-left"></div>
-                <div class="frame-corner bottom-right"></div>
-                <div class="frame-edge top"></div>
-                <div class="frame-edge right"></div>
-                <div class="frame-edge bottom"></div>
-                <div class="frame-edge left"></div>                <div class="video-container">
-                    <iframe width="400" height="225" 
-                            src="https://www.youtube.com/embed/FxzBvqY5PP0?si=5SepACMjMugyVGj6&amp;start=11" 
-                            title="YouTube video player" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen>
-                    </iframe>
-                </div>
+        <div class="music-post compact moon-themed">
+            <h2>"Moon" 🌙</h2>
+            <p class="post-date">May 28, 2025</p>
+            <div class="record-player-container" data-player="moonPlayer">
+                <div class="record-player-base moon-player">
+                    <div class="vinyl-record moon-vinyl">
+                        <div class="vinyl-center">🌙</div>
+                        <div class="vinyl-label">MOON</div>
+                        <div class="moon-glow"></div>
+                    </div>
+                    <div class="tonearm moon-arm"></div>
+                    <div class="player-controls moon-controls">
+                        <button class="play-btn moon-btn" onclick="togglePlay('moonPlayer')">▶️</button>
+                        <div class="track-info">
+                            <div class="artist">KHUP MUNG</div>
+                            <div class="track">MOON</div>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <div class="star">✨</div>
+                        <div class="star">⭐</div>
+                        <div class="star">✨</div>
+                        <div class="star">🌟</div>
+                    </div>
+                </div>                <audio id="moonPlayer" preload="metadata" controls style="display: none;">
+                    <source src="../../files/Moon.flac" type="audio/flac">
+                    Your browser does not support FLAC audio format.
+                </audio>
             </div>
-            <p class="video-note">Banger</p>
-        </div>
-        
-        <div class="music-post compact">
-            <h2>"More than a Woman" - Bee Gees</h2>
-            <p class="post-date">May 22, 2025</p>
-            <div class="video-frame">
-                <div class="frame-corner top-left"></div>
-                <div class="frame-corner top-right"></div>
-                <div class="frame-corner bottom-left"></div>
-                <div class="frame-corner bottom-right"></div>
-                <div class="frame-edge top"></div>
-                <div class="frame-edge right"></div>
-                <div class="frame-edge bottom"></div>
-                <div class="frame-edge left"></div>
-                <div class="video-container">
-                    <iframe width="400" height="225" 
-                            src="https://www.youtube.com/embed/uQ9_MwZIaoc" 
-                            title="More than a Woman - Bee Gees" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-            <p class="video-note">to me!</p>
+            <p class="video-note">🌙 Dreamy celestial vibes under moonlight</p>
         </div>
     </div>
 </body>
