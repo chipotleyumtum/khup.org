@@ -1,0 +1,11 @@
+name = "khup-org"
+main = "index.html"
+compatibility_date = "2025-05-28"
+
+[site]
+bucket = "./"
+
+[[rules]]
+type = "Text"
+globs = ["**/*.html"]
+fallthrough = true

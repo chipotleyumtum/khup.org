@@ -1,9 +1,0 @@
-{
-  "name": "my-spa",
-  "main": "src/index.html",
-  "compatibility_date": "2025-05-28",
-  "assets": {
-    "directory": "./main",
-    "binding": "ASSETS"
-  }
-}
