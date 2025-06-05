@@ -1,3 +1,16 @@
+<script>
+
+document.addEventListener('click', function() {
+    const audio = document.getElementById('myAudio');
+    audio.play().catch(e => console.log('Playback failed:', e));
+    }, 
+    { 
+        once: true 
+    }
+);
+
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,11 +80,11 @@
                         </div>
                     </div>
                 </div>                <audio id="hipHopPlayer" preload="metadata" controls style="display: none;">
-                    <source src="https://pub-ec4767d5174a47b4adb030767a8cf157.r2.dev/Moon.flac" type="audio/flac">
+                    <source src="/files/marcyme.flac" type="audio/flac">
                     Your browser does not support FLAC audio format.
                 </audio>
             </div>
-            <p class="video-note">🔥 Original hip-hop track with powerful lyrics</p>
+            <p class="video-note">Never change</p>
         </div>
         
         <div class="music-post compact moon-themed">
@@ -99,11 +112,11 @@
                         <div class="star">🌟</div>
                     </div>
                 </div>                <audio id="moonPlayer" preload="metadata" controls style="display: none;">
-                    <source src="../../files/Moon.flac" type="audio/flac">
+                    <source src="https://pub-ec4767d5174a47b4adb030767abcf157.r2.dev/Moon.flac" type="audio/flac">
                     Your browser does not support FLAC audio format.
                 </audio>
             </div>
-            <p class="video-note">🌙 Dreamy celestial vibes under moonlight</p>
+            <p class="video-note">🌙 MOOON</p>
         </div>
     </div>
 </body>
