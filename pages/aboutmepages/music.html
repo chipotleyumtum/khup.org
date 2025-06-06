@@ -118,6 +118,33 @@ document.addEventListener('click', function() {
             </div>
             <p class="video-note">🌙 MOOON</p>
         </div>
+        
+        <!-- Light themed MP3 player -->
+        <div class="music-post compact light-themed">
+            <h2>"Light" 💡</h2>
+            <p class="post-date">June 5, 2025</p>
+            <div class="record-player-container" data-player="lightPlayer">
+                <div class="record-player-base light-player">
+                    <div class="vinyl-record light-vinyl">
+                        <div class="vinyl-center">💡</div>
+                        <div class="vinyl-label"><i class="fas fa-lightbulb    "></i></div>
+                    </div>
+                    <div class="tonearm"></div>
+                    <div class="player-controls">
+                        <button class="play-btn" onclick="togglePlay('lightPlayer')">▶️</button>
+                        <div class="track-info">
+                            <div class="artist">Wave to Earth</div>
+                            <div class="track">Light</div>
+                        </div>
+                    </div>
+                </div>
+                <audio id="lightPlayer" preload="metadata" controls style="display: none;">
+                    <source src="../../files/light.mp3" type="audio/mpeg">
+                    Your browser does not support MP3 audio format.
+                </audio>
+            </div>
+            <p class="video-note">🔆 Bright vibes in every beat!</p>
+        </div>
     </div>
 </body>
 </html>
