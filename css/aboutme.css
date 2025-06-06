@@ -461,6 +461,16 @@ nav a {
   margin-bottom: 1.5rem; /* space after list */
 }
 
+/* Small spacing between list items */
+.aboutme-box section ul li {
+  margin-bottom: 0.4rem;
+}
+
+/* Optional: remove bottom margin for last item */
+.aboutme-box section ul li:last-child {
+  margin-bottom: 0;
+}
+
 /* Distinct rectangular box for philosophy content */
 .philosophy-box {
   background-color: rgba(255, 248, 220, 0.9); /* light parchment tone */
