@@ -1277,3 +1277,14 @@ nav a {
   color: #333;
   text-shadow: none;
 }
+
+/* Center all page titles */
+.philosophy-title,
+.movies-title,
+.mathematics-title,
+.soccer-title,
+.chess-title,
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
