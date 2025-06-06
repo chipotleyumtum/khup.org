@@ -462,6 +462,15 @@ nav a {
   margin-top: 0.5rem; /* ensure gap between title and box */
 }
 
+/* Philosophy page section spacing */
+.philosophy-box section h2 {
+  margin-bottom: 0.5rem;
+}
+.philosophy-box section ul {
+  margin-top: 0;
+  padding-left: 1.25rem; /* ensure list indent */
+}
+
 /* Distinct rectangular box for mathematics content */
 .math-box {
   background-color: rgba(255, 248, 220, 0.9); /* light parchment tone */
