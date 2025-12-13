@@ -1,0 +1,76 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Environment and Config Files
+.env
+.env.local
+.env.*.local
+config.json
+secrets.json
+*.key
+*.pem
+*.cert
+
+# Build and Dependency Directories
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+build/
+.cache/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Temporary and Cache Files
+*.tmp
+*.temp
+*.log
+*.bak
+*.backup
+
+# Audio Source Files (keep converted MP3s only)
+*.flac
+*.wav
+*.aiff
+
+# Sensitive or Private Files
+/files/private/
+*.private.*
+credentials.*
+
+# Testing and Development
+test/
+tests/
+.pytest_cache/
+
+# Version Control
+.git/
+.gitattributes

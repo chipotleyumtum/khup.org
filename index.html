@@ -10,11 +10,13 @@
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
-    <link rel="icon" type="image/png" href="FAVICON.png">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/home.css">
     <title>KHUP.ORG</title>
@@ -22,14 +24,19 @@
 <body class="home">
     <header class="home-header">
         <div class="home-brand">
-            <h1 class="site-title">KHUP.ORG</h1>
+            <h1 class="site-title">
+                <span class="letter" style="--i:0">K</span>
+                <span class="letter" style="--i:1">H</span>
+                <span class="letter" style="--i:2">U</span>
+                <span class="letter" style="--i:3">P</span>
+            </h1>
         </div>
     </header>
 
     <main class="home-main">
         <nav class="home-nav" aria-label="Primary">
-            <a href="pages/Blog.html">Blog</a>
-            <a href="pages/aboutme.html">About me</a>
+            <a href="pages/blog.html"><span>Blog</span></a>
+            <a href="pages/aboutme.html"><span>About me</span></a>
         </nav>
     </main>
 </body>

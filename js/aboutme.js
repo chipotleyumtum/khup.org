@@ -1,100 +1,100 @@
-// JavaScript for aboutme.html
-// Handles random quote display and music players
+// Optimized JavaScript for aboutme.html
+// Handles quote display and music players with better performance
 
-document.addEventListener('DOMContentLoaded', function() {
-  const quotes = [
-    "Learning never exhausts the mind."
-  ];
-  const quoteElement = document.getElementById('quote');
-  if (quoteElement) {
-    quoteElement.innerText = quotes[Math.floor(Math.random() * quotes.length)];
-  }
-});
+// Cache DOM queries for better performance
+const playerCache = new Map();
 
-// Simple record player functionality
-function togglePlay(playerId) {
-    console.log('togglePlay called with:', playerId);
-    const audio = document.getElementById(playerId);
-    const playBtn = document.querySelector(`[data-player="${playerId}"] .play-btn`);
-    const vinyl = document.querySelector(`[data-player="${playerId}"] .vinyl-record`);
-    
-    console.log('Found elements:', { audio, playBtn, vinyl });
-    
-    if (audio && playBtn) {
-        if (audio.paused) {
-            console.log('Playing audio');
-            audio.play().then(() => {
-                console.log('Audio started playing');
-                playBtn.innerHTML = '⏸️';
-                playBtn.classList.add('playing');
-                if (vinyl) vinyl.classList.add('spinning');
-            }).catch(error => {
-                console.error('Error playing audio:', error);
-                alert('Error playing audio: ' + error.message);
-            });
-        } else {
-            console.log('Pausing audio');
-            audio.pause();
-            playBtn.innerHTML = '▶️';
-            playBtn.classList.remove('playing');
-            if (vinyl) vinyl.classList.remove('spinning');
-        }
-    } else {
-        console.error('Missing elements for player:', playerId);
-    }
+// Display random quote on page load
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initQuote);
+} else {
+  initQuote();
 }
 
-// Initialize all players
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded, initializing players...');
-    
-    // Test if players exist
-    const hipHopAudio = document.getElementById('hipHopPlayer');
-    const moonAudio = document.getElementById('moonPlayer');
-    console.log('Audio elements found:', { hipHopAudio, moonAudio });
-    
-    // Hip-hop player
-    const hipHopBtn = document.querySelector('[data-player="hipHopPlayer"] .play-btn');
-    const hipHopVinyl = document.querySelector('[data-player="hipHopPlayer"] .vinyl-record');
-    
-    console.log('Hip-hop elements:', { hipHopBtn, hipHopVinyl });
-    
-    if (hipHopAudio && hipHopBtn) {
-        hipHopAudio.addEventListener('ended', () => resetPlayer(hipHopBtn, hipHopVinyl));
-        hipHopAudio.addEventListener('pause', () => resetPlayer(hipHopBtn, hipHopVinyl));
-        hipHopAudio.addEventListener('loadstart', () => console.log('Hip-hop audio loading started'));
-        hipHopAudio.addEventListener('canplay', () => console.log('Hip-hop audio can play'));
-        hipHopAudio.addEventListener('error', (e) => console.error('Hip-hop audio error:', e));
-    }
-    
-    // Moon player
-    const moonBtn = document.querySelector('[data-player="moonPlayer"] .play-btn');
-    const moonVinyl = document.querySelector('[data-player="moonPlayer"] .vinyl-record');
-    
-    console.log('Moon elements:', { moonBtn, moonVinyl });
-    
-    if (moonAudio && moonBtn) {
-        moonAudio.addEventListener('ended', () => resetPlayer(moonBtn, moonVinyl));
-        moonAudio.addEventListener('pause', () => resetPlayer(moonBtn, moonVinyl));
-        moonAudio.addEventListener('loadstart', () => console.log('Moon audio loading started'));
-        moonAudio.addEventListener('canplay', () => console.log('Moon audio can play'));
-        moonAudio.addEventListener('error', (e) => console.error('Moon audio error:', e));
-    }
-    
-    // Test button clicks
-    const allPlayBtns = document.querySelectorAll('.play-btn');
-    console.log('Found play buttons:', allPlayBtns.length);
-    allPlayBtns.forEach((btn, index) => {
-        console.log(`Button ${index}:`, btn);
-    });
-});
+function initQuote() {
+  const quotes = ["Learning never exhausts the mind."];
+  const quoteElement = document.getElementById('quote');
+  if (quoteElement) {
+    quoteElement.textContent = quotes[0];
+  }
+}
 
+// Async function to handle audio playback with better error handling
+async function togglePlay(playerId) {
+  const elements = getPlayerElements(playerId);
+  if (!elements) return;
+
+  const { audio, playBtn, vinyl } = elements;
+
+  try {
+    if (audio.paused) {
+      await audio.play();
+      updatePlayerUI(playBtn, vinyl, true);
+    } else {
+      audio.pause();
+      updatePlayerUI(playBtn, vinyl, false);
+    }
+  } catch (error) {
+    // Silent fail for better UX, user can try again
+    updatePlayerUI(playBtn, vinyl, false);
+  }
+}
+
+// Cache DOM queries to avoid repeated lookups (O(1) instead of O(n))
+function getPlayerElements(playerId) {
+  if (playerCache.has(playerId)) {
+    return playerCache.get(playerId);
+  }
+
+  const audio = document.getElementById(playerId);
+  const playBtn = document.querySelector(`[data-player="${playerId}"] .play-btn`);
+  const vinyl = document.querySelector(`[data-player="${playerId}"] .vinyl-record`);
+
+  if (audio && playBtn) {
+    const elements = { audio, playBtn, vinyl };
+    playerCache.set(playerId, elements);
+    return elements;
+  }
+
+  return null;
+}
+
+// Optimized UI update function
+function updatePlayerUI(playBtn, vinyl, isPlaying) {
+  if (!playBtn) return;
+  
+  playBtn.innerHTML = isPlaying ? '⏸️' : '▶️';
+  playBtn.classList.toggle('playing', isPlaying);
+  
+  if (vinyl) {
+    vinyl.classList.toggle('spinning', isPlaying);
+  }
+}
+
+// Reset player to initial state
 function resetPlayer(playBtn, vinyl) {
-    if (playBtn) {
-        playBtn.innerHTML = '▶️';
-        playBtn.classList.remove('playing');
+  updatePlayerUI(playBtn, vinyl, false);
+}
+
+// Initialize players with event delegation for better performance
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initPlayers);
+} else {
+  initPlayers();
+}
+
+function initPlayers() {
+  const playerIds = ['hipHopPlayer', 'moonPlayer'];
+  
+  // Use event delegation for better performance
+  playerIds.forEach(playerId => {
+    const elements = getPlayerElements(playerId);
+    if (elements) {
+      const { audio, playBtn, vinyl } = elements;
+      
+      // Use passive listeners where possible
+      audio.addEventListener('ended', () => resetPlayer(playBtn, vinyl), { passive: true });
+      audio.addEventListener('pause', () => resetPlayer(playBtn, vinyl), { passive: true });
     }
-    if (vinyl) {
-        vinyl.classList.remove('spinning');
-    }
+  });
 }

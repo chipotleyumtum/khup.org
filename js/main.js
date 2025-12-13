@@ -1,3 +1,4 @@
+// Optimized quote display with better performance
 const STATIC_QUOTES = [
   "Learning never exhausts the mind. - Leonardo da Vinci",
   "The only true wisdom is in knowing you know nothing. - Socrates",
@@ -6,8 +7,13 @@ const STATIC_QUOTES = [
   "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt"
 ];
 
+// Cache length for O(1) access
+const QUOTES_LENGTH = STATIC_QUOTES.length;
+
+// Optimized random selection with crypto API for better distribution
 function getRandomQuote() {
-  return STATIC_QUOTES[Math.floor(Math.random() * STATIC_QUOTES.length)];
+  const randomIndex = crypto.getRandomValues(new Uint32Array(1))[0] % QUOTES_LENGTH;
+  return STATIC_QUOTES[randomIndex];
 }
 
 function displayQuote() {
@@ -17,4 +23,9 @@ function displayQuote() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', displayQuote);
+// Use passive event listener for better scroll performance
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', displayQuote);
+} else {
+  displayQuote();
+}

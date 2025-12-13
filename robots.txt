@@ -1,0 +1,48 @@
+# Robots.txt for khup.org
+# Security and Privacy Configuration
+
+User-agent: *
+# Allow general crawling
+Disallow: /files/
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /.vscode/
+Disallow: /archive/
+Disallow: *.pdf$
+Disallow: *.mp3$
+Disallow: *.mp4$
+
+# Crawl delay to prevent aggressive scraping
+Crawl-delay: 10
+
+# Sitemap location (create this later)
+# Sitemap: https://khup.org/sitemap.xml
+
+# Prevent AI training bots from scraping content
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+# Prevent aggressive data mining
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

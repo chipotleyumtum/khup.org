@@ -1,0 +1,24 @@
+# Security Contact Information
+# RFC 9116 Compliant Security.txt
+
+Contact: mailto:security@khup.org
+Expires: 2026-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://khup.org/.well-known/security.txt
+
+# Security Policy
+Policy: https://khup.org/docs/security.md
+
+# Acknowledgments
+Acknowledgments: https://khup.org/.well-known/security.txt
+
+# Reporting Guidelines
+# Please report security vulnerabilities responsibly:
+# 1. Do not disclose publicly until patched
+# 2. Provide detailed reproduction steps
+# 3. Allow reasonable time for response (90 days)
+# 4. Include potential impact assessment
+
+# Encryption
+# For encrypted communications, please use PGP
+# Key-ID: (Add your PGP key ID if you have one)

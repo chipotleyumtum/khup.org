@@ -11,7 +11,8 @@
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Cache-Control" content="max-age=31536000, public">
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
-    <link rel="icon" type="image/png" href="../FAVICON.png">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+    <link rel="icon" type="image/png" href="../favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -80,9 +81,15 @@
         <p class="post-content">I've been experimenting with TinkerCAD and it's an exceptional software for 3D design. Starting with simple shapes, I've created some interesting models:</p>
         
         <div class="post-images">
-            <img src="../images/tink1.png" alt="Tinkering with AI 1" class="blog-post-image" loading="lazy">
-            <img src="../images/tink2.png" alt="Tinkering with AI 2" class="blog-post-image" loading="lazy">
-            <img src="../images/tink3.png" alt="Tinkering with AI 3" class="blog-post-image" loading="lazy">
+            <img src="../images/tink1.png" alt="Tinkering with AI 1" 
+                 class="blog-post-image" loading="lazy" decoding="async" 
+                 width="800" height="600">
+            <img src="../images/tink2.png" alt="Tinkering with AI 2" 
+                 class="blog-post-image" loading="lazy" decoding="async" 
+                 width="800" height="600">
+            <img src="../images/tink3.png" alt="Tinkering with AI 3" 
+                 class="blog-post-image" loading="lazy" decoding="async" 
+                 width="800" height="600">
         </div>
         
         <p class="post-content">I would recommend TinkerCAD to anyone interested in technology and design. Visit <a href="https://www.tinkercad.com" target="_blank" rel="noopener noreferrer">TinkerCAD.com</a> to get started.</p>

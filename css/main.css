@@ -1,6 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap"); /* Edgier title font */
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"); /* Edgier nav font */
+/* Optimized CSS - Removed unused font imports (Metal Mania, Orbitron) */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
 :root {
   --color-red: #ec1840;
@@ -85,59 +84,5 @@ body {
   box-sizing: border-box;
 }
 
-/* Styling for the KHUP.ORG title */
-.site-title {
-    font-family: 'Metal Mania', cursive; /* Use Metal Mania for edgy look */
-    font-size: 4rem; /* Adjust size as needed */
-    color: #fff;
-    text-shadow:
-        0 0 6px var(--color-red),
-        0 0 12px var(--color-purple),
-        0 0 18px var(--color-red);
-    text-align: center;
-    margin-bottom: 20px; /* Space below the title */
-    letter-spacing: 3px;
-}
-
-.nav-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* margin-top: 20px; Removed as site-title has margin-bottom */
-    flex-wrap: wrap;
-}
-
-.nav-links a,
-.nav-links a:nth-of-type(2) {
-  position: relative;
-  width: 150px; /* Reduced width for better fit */
-  height: 60px;
-  margin: 10px;
-  line-height: 60px;
-  letter-spacing: 2px;
-  text-decoration: none;
-  text-transform: uppercase;
-  text-align: center;
-  font-family: 'Orbitron', sans-serif;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-
-  /* Existing gold theme styles */
-  background-color: rgba(255,255,255,0.6);
-  color: #333; /* Dark grey for better visibility */
-  border: 2px solid #ffd700;
-  border-radius: 30px;
-  box-shadow: 0 4px 0 #ffd700;
-}
-
-.nav-links a:hover,
-.nav-links a:nth-of-type(2):hover {
-  background-color: rgba(255,255,255,0.8);
-  color: #000; /* Black for hover state for more emphasis */
-  transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 8px 0 #ffd700;
-}
-
-@keyframes animate {
-  0% { background-position: 0 0; }
-  100% { background-position: 0 -1080px; } /* This assumes a sprite sheet of 180px width and 1080px total height (60px * 18 frames) */
-}
+/* Removed unused .site-title and .nav-links styles - handled by home.css */
+/* Removed unused @keyframes animate - not referenced anywhere */
