@@ -16,3 +16,5 @@ function displayQuote() {
     quoteElement.textContent = getRandomQuote();
   }
 }
+
+document.addEventListener('DOMContentLoaded', displayQuote);

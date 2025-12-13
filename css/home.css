@@ -1,0 +1,109 @@
+/* Home page overrides (index.html) */
+
+body.home {
+  position: relative;
+  display: block;
+  min-height: 100vh;
+  background-color: #f5f5dc;
+  background: url('../images/parchment.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Libre Baskerville', serif;
+  color: #3e2723;
+  padding: 0 2rem 2rem;
+}
+
+/* Da Vinci-inspired notebook sketch overlay (original SVG texture) */
+body.home::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900' viewBox='0 0 900 900'%3E%3Cdefs%3E%3ClinearGradient id='fade' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%233e2723' stop-opacity='0.00'/%3E%3Cstop offset='1' stop-color='%233e2723' stop-opacity='0.10'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='900' height='900' fill='url(%23fade)'/%3E%3Cg fill='none' stroke='%233e2723' stroke-opacity='0.22'%3E%3Cpath d='M40 120 C160 80, 260 160, 380 120 S600 160, 720 120 S840 160, 860 140' stroke-width='1'/%3E%3Cpath d='M60 240 C180 200, 300 280, 420 240 S640 280, 760 240 S860 260, 880 250' stroke-width='1'/%3E%3Cpath d='M80 360 C200 320, 320 400, 440 360 S680 400, 800 360 S880 380, 890 375' stroke-width='1'/%3E%3C/g%3E%3Cg fill='none' stroke='%233e2723' stroke-opacity='0.18'%3E%3Ccircle cx='680' cy='620' r='190' stroke-width='1.2'/%3E%3Ccircle cx='680' cy='620' r='130' stroke-width='1.0'/%3E%3Ccircle cx='680' cy='620' r='70' stroke-width='0.9'/%3E%3Cpath d='M490 620 L870 620' stroke-width='0.9'/%3E%3Cpath d='M680 430 L680 810' stroke-width='0.9'/%3E%3Cpath d='M550 500 L810 740' stroke-width='0.7'/%3E%3Cpath d='M810 500 L550 740' stroke-width='0.7'/%3E%3C/g%3E%3Cg stroke='%233e2723' stroke-opacity='0.10'%3E%3Cpath d='M95 520 l280 -60' stroke-width='2'/%3E%3Cpath d='M105 560 l290 -55' stroke-width='1.5'/%3E%3Cpath d='M120 610 l270 -40' stroke-width='1.2'/%3E%3C/g%3E%3Cg fill='%233e2723' fill-opacity='0.16' font-family='Georgia, serif' font-size='16'%3E%3Ctext x='86' y='760'%3Enota bene%3C/text%3E%3Ctext x='86' y='782'%3Estudies %26 observations%3C/text%3E%3Ctext x='86' y='804'%3Egeometry %E2%80%A2 motion %E2%80%A2 form%3C/text%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 900px 900px;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+}
+
+.home-header,
+.home-main {
+  position: relative;
+  z-index: 1;
+}
+
+.home-header {
+  z-index: 1000;
+  width: calc(100% + 4rem);
+  margin-left: -2rem;
+  background: rgba(255, 248, 220, 0.8);
+  padding: 1rem;
+  border-bottom: 1px solid #a1887f;
+}
+
+.home-brand {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+body.home .site-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  color: #3e2723;
+  text-shadow: none;
+  margin: 0;
+}
+
+.home-main {
+  max-width: 900px;
+  margin: 2rem auto 0;
+}
+
+.home-nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-nav a {
+  margin: 0;
+  padding: 0.95rem 1.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(161, 136, 127, 0.85);
+  background: rgba(255, 248, 220, 0.9);
+  color: #3e2723;
+  box-shadow: 0 6px 16px rgba(62, 39, 35, 0.18);
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1.5px;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+  min-width: 190px;
+  text-align: center;
+}
+
+.home-nav a:hover {
+  background: rgba(255, 248, 220, 0.98);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  body.home {
+    padding: 0 1rem 1.5rem;
+  }
+
+  .home-header {
+    width: calc(100% + 2rem);
+    margin-left: -1rem;
+  }
+
+  body.home .site-title {
+    font-size: 2.4rem;
+  }
+}
